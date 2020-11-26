@@ -1,4 +1,5 @@
-const orphanages = require('./database/fakedata.js');
+const Database = require('./database/db');
+const saveOrphanage = require('./database/saveOrphanage');
 
 module.exports = {
 
@@ -10,8 +11,17 @@ module.exports = {
         return response.render('orphanage')
     },
 
-    orphanages(require, response) {
-        return response.render('orphanages', { orphanages })
+    async orphanages(require, response) {
+        // Colocar orphanage pelo banco
+
+        try {
+            const db = await Database;
+            const orphanages = await db.all("SELECT * FROM orphanages")
+            return response.render('orphanages', { orphanages })
+        } catch (error) {
+            console.log(error)
+            return response.send('Erro no banco de dados!')
+        }
     },
 
     createOrphanage(require, response) {
