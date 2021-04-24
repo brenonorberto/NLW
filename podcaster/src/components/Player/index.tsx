@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { PlayerContexts } from '../../contexts/PlayerContexts';
+import { usePlayer } from '../../contexts/PlayerContexts';
 import styles from './style.module.scss';
 
 export function Player() {
@@ -12,9 +12,14 @@ export function Player() {
         episodeList, 
         currentEpisodeIndex, 
         isPlaying, 
+        isLooping,
         togglePlay, 
-        setPlayingState
-    } = useContext(PlayerContexts)
+        playNext,
+        playPrevious,
+        setPlayingState,
+        hasNext,
+        hasPrevious,
+    } = usePlayer();
 
     useEffect(() => {
         if (!audioRef.current) {
@@ -75,6 +80,7 @@ export function Player() {
                     <audio 
                         src={episode.url}
                         ref={audioRef}
+                        loop={isLooping}
                         autoPlay
                         onPlay={() => setPlayingState(true)}
                         onPause={() => setPlayingState(false)}
@@ -87,7 +93,7 @@ export function Player() {
                     <button type="button" disabled={!episode}>
                         <img src="/shuffle.svg" alt="Embaralhando"/>
                     </button>
-                    <button type="button" disabled={!episode}>
+                    <button type="button" onClick={playPrevious} disabled={!episode || !hasPrevious}>
                         <img src="/play-previous.svg" alt="Tocar anterior"/>
                     </button>
                     <button 
@@ -100,7 +106,7 @@ export function Player() {
                             ? <img src="/pause.svg" alt="Parar"/>
                             : <img src="/play.svg" alt="Tocar"/> }
                     </button>
-                    <button type="button" disabled={!episode}>
+                    <button type="button" onClick={playNext} disabled={!episode || !hasNext}>
                         <img src="/play-next.svg" alt="Tocar proxima"/>
                     </button>
                     <button type="button" disabled={!episode}>
