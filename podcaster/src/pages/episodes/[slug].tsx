@@ -8,6 +8,7 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 import styles from './episode.module.scss';
 import Image from 'next/image'
 import { usePlayer } from '../../contexts/PlayerContexts';
+import Head from 'next/head';
 
 type Episode = {
     id: string;
@@ -30,6 +31,10 @@ export default function Episode({ episode }: EpisodeProps) {
 
     return (
         <div className={styles.episode}>
+            <Head>
+                <title>{episode.title} | Podcaster</title>
+            </Head>
+
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
                     <button type="button">
@@ -80,7 +85,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         thumbnail: data.thumbnail,
         members: data.members,
         publishedAt: format(parseISO(data.published_at), 'd MMM yy', {locale: ptBR }),
-        duration: Number(data.duration),
+        duration: Number(data.file.duration),
         durationAsString: convertDurationToTimeString(Number(data.file.duration)),
         description: data.description,
         url: data.file.url,

@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
+import Head from 'next/head';
 import Link from 'next/link';
 import {format, parseISO} from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
@@ -21,7 +22,7 @@ type Episodes = {
 }
 
 type HomeProps = {
-  lastEpisodes: Episodes[];
+  lastEpisodes: Array<Episodes>;
   allEpisodes: Episodes[];
 }
 
@@ -32,6 +33,10 @@ export default function Home({ lastEpisodes, allEpisodes }: HomeProps) {
 
   return (
    <div className={styles.homepage}>
+     <Head>
+       <title>Home | Podcaster</title>
+     </Head>
+
      <section className={styles.lastEpisodes}>
        <h2>Últimos Lançamentos</h2>
 
@@ -136,7 +141,7 @@ export const getStaticProps: GetStaticProps = async () => {
       thumbnail: episode.thumbnail,
       members: episode.members,
       publishedAt: format(parseISO(episode.published_at), 'd MMM yy', {locale: ptBR }),
-      duration: Number(episode.duration),
+      duration: Number(episode.file.duration),
       durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
       url: episode.file.url,
     };
