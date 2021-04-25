@@ -1,11 +1,11 @@
-![Logo](https://github.com/brenonorberto/NLW/blob/33c77fc9ad01cd8f19f740cd81951f8e80188f52/moveit-next/public/logo-full.svg)
+![Logo](https://user-images.githubusercontent.com/38771228/116009113-0931f300-a5ee-11eb-9253-92cdc228539b.png)
 
 ![Capa do Projeto](https://user-images.githubusercontent.com/38771228/116009069-df78cc00-a5ed-11eb-92d8-8b7d890e48e8.png)
 
 
 ## 💻 Projeto
 
-O move.it é um app que une a técnica de Pomodoro com a realização de exercícios físicos para quem passa muito tempo na frente do computador.
+O podcaster é um app para ouvir alguns podcasts da galera da Rocketseat.
 
 ## ✨ Tecnologias
 
@@ -17,11 +17,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Deploy
 
-https://moveit-brenonorberto.vercel.app/
+
 
 ---
 
-##### Feito no NLW #4 da RoquetSeat
+##### Feito no NLW #5 da RoquetSeat
 
 
 
