@@ -1,4 +1,4 @@
-![Logo](https://github.com/brenonorberto/NLW/blob/33c77fc9ad01cd8f19f740cd81951f8e80188f52/moveit-next/public/logo-full.svg)
+![image](https://user-images.githubusercontent.com/38771228/116007585-d59f9a80-a5e6-11eb-9cfa-033c3f6e69c6.png)
 
 ![Capa do Projeto](https://user-images.githubusercontent.com/38771228/116007382-f4516180-a5e5-11eb-843e-a49b80d4cc80.png)
 
