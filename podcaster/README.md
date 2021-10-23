@@ -15,10 +15,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Deploy
-
-
-
 ---
 
 ##### Feito no NLW #5 da RoquetSeat
